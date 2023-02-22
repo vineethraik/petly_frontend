@@ -1,17 +1,18 @@
 import "./App.css";
 // import {database} from './../../database/database.js'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Util from './../Util/Util'
+import Signup from "./../modules/Signup/Signup";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Routes>
-        <Route path="/links" element={<Util />} />
+        
+      <Route path="/test" element={<Signup/>} />
         <Route path="/" element={<h2>Root</h2>} />
         <Route path="/home" element={<h2>Landing page</h2>} />
         <Route path="/login" element={<h2>Login page</h2>} />
-        <Route path="/signup" element={<h2>Signup page</h2>} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/recover" element={<h2>Password Recovery page</h2>} />
 
         <Route path="/owner" element={<h2>Owner Home page</h2>} />
