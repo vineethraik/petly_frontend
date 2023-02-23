@@ -1,0 +1,23 @@
+.input_root {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.input_root .input {
+  width: 100%;
+  margin-bottom: 0rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input_root .input label {
+  margin-right: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.input_root .input input {
+  font-size: 1.25rem;
+  padding: 2px;
+  border-radius: 5px;
+}
