@@ -1,5 +1,6 @@
 import React from "react";
 import Signup from "./modules/Signup/Signup";
+import Login from "./modules/Login/Login"
 
 
 let _Routes = [
@@ -7,7 +8,7 @@ let _Routes = [
 
     {path:'/home', element:<h2>Landing page</h2>, role:['all'], type: 'public'},
 
-    {path:'/login', element:<h2>Login page</h2>, role:['all'], type: 'public'},
+    {path:'/login', element:<Login />, role:['all'], type: 'public'},
 
     {path:'/signup', element:<Signup />, role:['all'], type: 'public'},
 
