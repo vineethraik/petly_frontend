@@ -25,14 +25,31 @@ function Signup() {
     if(name === ''){
       errs.name = "name cant be empty"
     }
+
     if(email === ''){
       errs.email = "email cant be empty"
+    }else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))){
+      errs.email = "Invalid Email try again"
     }
+
     if(password === ''){
       errs.password = "password cant be empty"
+    }else if((password.length < 8) || (password.length > 20)){
+      errs.password = "Password Should have 8 to 20 charectors"
+    }else if(!(/[A-Z]/).test(password)){
+      errs.password = "Password Should contain Uppercase letter"
+    }else if(!(/[a-z]/).test(password)){
+      errs.password = "Password Should contain Lowercase letter"
+    }else if(!(/[0-9]/).test(password)){
+      errs.password = "Password Should contain Numaric value"
+    }else if(!(/[!@#$&]/).test(password)){
+      errs.password = "Password Should contain Spetial charactor (!@#$&)"
     }
+
     if(confirmPassword === ''){
       errs.confirmPassword = "Confirm password cant empty"
+    } else if(!(confirmPassword === password)){
+      errs.confirmPassword = "Confirm password Should be same as password"
     }
 
     if(Object.keys(errs).length !== 0){
@@ -55,7 +72,6 @@ function Signup() {
           <Input id={emailInputId} label={'Email:'} value={email} setOnChange={setEmail} error={errors.email} type='email'/>
           <Input id={passwordInputId} label={'Password:'} value={password} setOnChange={setPassword} error={errors.password} type='password'/>
           <Input id={confirmPasswordInputId} label={'Confirm Password:'} value={confirmPassword} setOnChange={setConfirmPassword} error={errors.confirmPassword} type='password'/>
-          
           <div className="input_root">
             <div className="input">
               <label htmlFor={typeInputId}>Signing in as:</label>
