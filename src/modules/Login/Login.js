@@ -93,6 +93,7 @@ function Login() {
               Login
             </button>
           </div>
+          <a href="/recover">Forgot password?</a>
         </div>
       </div>
     </>
