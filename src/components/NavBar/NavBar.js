@@ -44,7 +44,7 @@ function NavBar({ type }) {
         <img src="logo.png" alt="logo" />
         <h2 className="logo_color">Petly</h2>
       </div>
-      <NavLinks type={"signup"} />
+      <NavLinks type={type} />
     </div>
   );
 }

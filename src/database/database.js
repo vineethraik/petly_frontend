@@ -1,4 +1,4 @@
-export class database {
+export default class database {
   data = JSON.parse("{}");
   constructor() {
     if(!window.localStorage.getItem("data")){
@@ -18,4 +18,19 @@ export class database {
     this.data = JSON.parse(window.localStorage.getItem("data"))
   }
   
+  authenticate(email,password){
+
+    let type = ''
+    this.data.accounts.forEach(element => {
+      if(element.email === email){
+        type = element.type
+      }
+    });
+
+    if(type === ''){
+      return 'userNotFound'
+    }else{
+      return type;
+    }
+  }
 }
