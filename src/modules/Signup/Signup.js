@@ -82,7 +82,7 @@ function Signup() {
             </div>
           </div>
           <div className="input_root button ">
-            <button onClick={handleSubmit} type="button" className="button button_color" >Submit</button>
+            <button onClick={handleSubmit} type="button" className="button button_color" >Signup</button>
           </div>
         </div>
       </div>
