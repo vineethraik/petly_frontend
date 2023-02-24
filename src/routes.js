@@ -1,6 +1,7 @@
 import React from "react";
 import Signup from "./modules/Signup/Signup";
 import Login from "./modules/Login/Login"
+import PasswordRecovery from './modules/PasswordRecovery/PasswordRecovery'
 
 
 let _Routes = [
@@ -12,7 +13,7 @@ let _Routes = [
 
     {path:'/signup', element:<Signup />, role:['all'], type: 'public'},
 
-    {path:'/recover', element:<h2>Password Recovery page</h2>, role:['all'], type: 'public'},
+    {path:'/recover', element:<PasswordRecovery />, role:['all'], type: 'public'},
 
     {path:'/owner', element:<h2>Owner Home page</h2>, role:['owner'], type: 'private'},
 

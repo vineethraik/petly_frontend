@@ -2,20 +2,22 @@ import React, { useState, useId } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./../../components/NavBar/NavBar";
 import Input from "./../../components/Input/Input";
-import database from "./../../database/database";
+import database from "./../../database/database"
 
-import "./Login.css";
-
-function Login() {
+function PasswordRecovery() {
   const [email, setEmail] = useState("");
+  const [secretString, setSecretString] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
 
   const emailInputId = useId();
+  const secretStringInputId = useId();
   const passwordInputId = useId();
+  const confirmPasswordInputId = useId();
 
   const navigate = useNavigate();
-  const db = new database();
+  const db = new database()
 
   const handleSubmit = (e) => {
     let errs = {};
@@ -24,7 +26,13 @@ function Login() {
       errs.email = "email cant be empty";
     } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
       errs.email = "Invalid Email try again";
+    }else if(!db.findAccount(email)){
+        errs.email = "Account not found";
     }
+
+    if(((secretString === '')||(!(/\b[0-9A-F]{6,20}\b/gi.test(secretString))))){
+        errs.secretString = "Invalid Secret String"
+      }
 
     if (password === "") {
       errs.password = "password cant be empty";
@@ -40,34 +48,26 @@ function Login() {
       errs.password = "Password Should contain Spetial charactor (!@#$&)";
     }
 
+    if(confirmPassword === ''){
+        errs.confirmPassword = "Confirm password cant empty"
+      } else if(!(confirmPassword === password)){
+        errs.confirmPassword = "Confirm password Should be same as password"
+      }
+
     if (Object.keys(errs).length !== 0) {
       setErrors(errs);
       console.log(errs);
     } else {
-      switch (db.authenticate(email, password)) {
-        case "Owner":
-          window.localStorage.setItem("email", email);
-          window.localStorage.setItem("role", "Owner");
-          navigate('/owner');
-          break;
-        case "Clinic":
-          window.localStorage.setItem("email", email);
-          window.localStorage.setItem("role", "Clinic");
-          navigate('/clinic');
-          break;
-
-        default:
-            setErrors({email: "User not Found"})
-          break;
-      }
+        navigate('/login')
     }
   };
+
   return (
     <>
-      <NavBar type="login" />
+      <NavBar type="signup" />
       <div className="auth ">
         <div className=" main_box color2">
-          <h2>Login</h2>
+          <h2>Password Reset</h2>
           <Input
             id={emailInputId}
             label={"Email:"}
@@ -77,11 +77,27 @@ function Login() {
             type="email"
           />
           <Input
+            id={secretStringInputId}
+            label={"Secret String:"}
+            value={secretString}
+            setOnChange={setSecretString}
+            error={errors.secretString}
+            type="text"
+          />
+          <Input
             id={passwordInputId}
-            label={"Password:"}
+            label={"New Password:"}
             value={password}
             setOnChange={setPassword}
             error={errors.password}
+            type="password"
+          />
+          <Input
+            id={confirmPasswordInputId}
+            label={"Confirm Password:"}
+            value={confirmPassword}
+            setOnChange={setConfirmPassword}
+            error={errors.confirmPassword}
             type="password"
           />
           <div className="input_root button ">
@@ -90,14 +106,13 @@ function Login() {
               type="button"
               className="button button_color"
             >
-              Login
+              Reset
             </button>
           </div>
-          <a href="/recover">Forgot password?</a>
         </div>
       </div>
     </>
   );
 }
 
-export default Login;
+export default PasswordRecovery;

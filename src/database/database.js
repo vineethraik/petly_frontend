@@ -33,4 +33,15 @@ export default class database {
       return type;
     }
   }
+
+  findAccount(email){
+    let found = false;
+    this.data.accounts.forEach(element => {
+      if(element.email === email){
+        found = true
+      }
+    });
+
+    return found
+  }
 }

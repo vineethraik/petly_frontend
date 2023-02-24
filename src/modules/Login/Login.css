@@ -80,4 +80,8 @@
     font-size: 0.75rem;
     color: red;
   }
+
+  .auth .main_box a{
+    align-self: flex-start;
+  }
   
