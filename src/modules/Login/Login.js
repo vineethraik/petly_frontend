@@ -1,5 +1,4 @@
 import React, { useState, useId } from "react";
-import { useNavigate } from "react-router-dom";
 import NavBar from "./../../components/NavBar/NavBar";
 import Input from "./../../components/Input/Input";
 import database from "./../../database/database";
@@ -14,7 +13,6 @@ function Login() {
   const emailInputId = useId();
   const passwordInputId = useId();
 
-  const navigate = useNavigate();
   const db = new database();
 
   const handleSubmit = (e) => {
@@ -47,13 +45,11 @@ function Login() {
       switch (db.authenticate(email, password)) {
         case "Owner":
           window.localStorage.setItem("email", email);
-          window.localStorage.setItem("role", "Owner");
-          navigate('/owner');
+          window.location.href = '/owner'
           break;
         case "Clinic":
           window.localStorage.setItem("email", email);
-          window.localStorage.setItem("role", "Clinic");
-          navigate('/clinic');
+          window.location.href = '/clinic'
           break;
 
         default:
