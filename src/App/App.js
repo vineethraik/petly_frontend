@@ -1,14 +1,39 @@
 import "./App.css";
-// import {database} from './../../database/database.js'
+import Login from './../modules/Login/Login';
+import database from './../database/database';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import _Routes from "./../routes";
 
 function App() {
+
+  let db = new database();
+
   return (
     <BrowserRouter>
       <Routes>
         {_Routes.map((rt) => {
-          return <Route key={rt.path} path={rt.path} element={rt.element} />;
+          if (rt.type === "private") {
+            let user_email = window.localStorage.getItem("email");
+            let user_role = window.localStorage.getItem("role");
+            if (user_email && user_role) {
+              if(db.findAccount(user_email)){
+                if(rt.role.includes(db.getType(user_email).toLowerCase())){
+                  return <Route key={rt.path} path={rt.path} element={rt.element} />;
+                }else{
+                  console.log(db.getType(user_email),rt.role);
+                  return <Route key={rt.path} path={rt.path} element={<Login />} />;
+                }
+              }else{
+                console.log("account");
+                return <Route key={rt.path} path={rt.path} element={<Login />} />;
+              }
+            } else {
+              console.log("storage");
+              return <Route key={rt.path} path={rt.path} element={<Login />} />;
+            }
+          } else {
+            return <Route key={rt.path} path={rt.path} element={rt.element} />;
+          }
         })}
       </Routes>
     </BrowserRouter>
