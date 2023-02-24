@@ -44,4 +44,19 @@ export default class database {
 
     return found
   }
+
+  getType(email){
+    let type = ''
+    this.data.accounts.forEach(element => {
+      if(element.email === email){
+        type = element.type
+      }
+    });
+
+    if(type === ''){
+      return 'nill'
+    }else{
+      return type;
+    }
+  }
 }
