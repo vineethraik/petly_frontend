@@ -14,22 +14,13 @@ function App() {
         {_Routes.map((rt) => {
           if (rt.type === "private") {
             let user_email = window.localStorage.getItem("email");
-            let user_role = window.localStorage.getItem("role");
-            if (user_email && user_role) {
+            // let user_role = window.localStorage.getItem("role");
+            if (user_email ) {
               if(db.findAccount(user_email)){
                 if(rt.role.includes(db.getType(user_email).toLowerCase())){
                   return <Route key={rt.path} path={rt.path} element={rt.element} />;
-                }else{
-                  console.log(db.getType(user_email),rt.role);
-                  return <Route key={rt.path} path={rt.path} element={<Login />} />;
                 }
-              }else{
-                console.log("account");
-                return <Route key={rt.path} path={rt.path} element={<Login />} />;
               }
-            } else {
-              console.log("storage");
-              return <Route key={rt.path} path={rt.path} element={<Login />} />;
             }
           } else {
             return <Route key={rt.path} path={rt.path} element={rt.element} />;

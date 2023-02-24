@@ -50,7 +50,7 @@ let _Routes = [
     {path:'/clinic/message' ,element:<h2>Clinic Message page</h2> ,role:['clinic'] ,type: 'private'},
 
     
-    {path:'*' ,element:<h2>Unknown route</h2> ,role:['all'] ,type: 'public'},
+    {path:'*' ,element:<Login /> ,role:['all'] ,type: 'public'},
 
     
 ];
