@@ -1,7 +1,10 @@
 import React from "react";
+
 import Signup from "./modules/Signup/Signup";
 import Login from "./modules/Login/Login"
 import PasswordRecovery from './modules/PasswordRecovery/PasswordRecovery'
+
+import OwnerHome from './modules/OwnerHome/OwnerHome'
 
 
 let _Routes = [
@@ -15,7 +18,7 @@ let _Routes = [
 
     {path:'/recover', element:<PasswordRecovery />, role:['all'], type: 'public'},
 
-    {path:'/owner', element:<h2>Owner Home page</h2>, role:['owner'], type: 'private'},
+    {path:'/owner', element:<OwnerHome />, role:['owner'], type: 'private'},
 
     {path:'/owner/dashboard/:id', element:<h2>Dashboard page</h2>, role:['owner'], type: 'private'},
 
@@ -50,7 +53,7 @@ let _Routes = [
     {path:'/clinic/message' ,element:<h2>Clinic Message page</h2> ,role:['clinic'] ,type: 'private'},
 
     
-    {path:'*' ,element:<h2>Unknown route</h2> ,role:['all'] ,type: 'public'},
+    {path:'*' ,element:<Login /> ,role:['all'] ,type: 'public'},
 
     
 ];

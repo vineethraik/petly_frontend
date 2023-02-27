@@ -47,13 +47,15 @@ function Login() {
       switch (db.authenticate(email, password)) {
         case "Owner":
           window.localStorage.setItem("email", email);
-          window.localStorage.setItem("role", "Owner");
-          navigate('/owner');
+          console.log(email);
+          // navigate('/owner');
+          window.location.href = '/owner'
           break;
         case "Clinic":
+          console.log(email);
           window.localStorage.setItem("email", email);
-          window.localStorage.setItem("role", "Clinic");
-          navigate('/clinic');
+          // navigate('/clinic');
+          window.location.href = '/clinic'
           break;
 
         default:

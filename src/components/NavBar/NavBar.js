@@ -21,7 +21,7 @@ function NavLinks({ type }) {
       return (
         <div className="Links">
         <a href="/owner">Home</a>
-        <a href="/">Logout</a>
+        <a href="/home" onClick={()=>{window.localStorage.removeItem("email")}}>Logout</a>
         </div>
       );
       case "clinic":
