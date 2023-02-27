@@ -59,4 +59,15 @@ export default class database {
       };
     }
   }
+
+  getPetData(pet_id){
+    let pet = this.data.pets.find(pet => pet.id === parseInt(pet_id))
+
+    if(pet === undefined){
+      return {}
+    }else{
+      console.log(pet);
+      return pet;
+    }
+  }
 }
