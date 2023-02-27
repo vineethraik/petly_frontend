@@ -1,15 +1,19 @@
-import React, { useState, useId } from "react";
+import {useParams} from "react-router-dom";
+import moment from 'moment';
+
+import React, { useState, useId, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./AddPet.css";
+import "./EditPet.css";
 import NavBar from "./../../components/NavBar/NavBar";
 import Input from "./../../components/Input/Input";
+import database from './../../database/database'
 
-function AddPet() {
+function EditPet() {
   const [petType, setPetType] = useState("Dog");
   const [breed, setBreed] = useState("");
   const [name, setName] = useState("");
   const [lastVaccinatedOn, setLastVaccinatedOn] = useState("");
-  const [helthRecord, setHelthRecord] = useState(null);
+  const [helthRecord, setHelthRecord] = useState(undefined);
   const [defaultAccess, setDefaultAccess] = useState(true);
   const [errors, setErrors] = useState({});
 
@@ -21,6 +25,18 @@ function AddPet() {
   const defaultAccessInputId = useId();
 
   const navigate = useNavigate();
+  const db =new database();
+  const {id} = useParams();
+
+  useEffect(()=>{
+    let pet = db.getPetData(id);
+    let date = moment(Date.parse(pet.last_vaccinated_on)).format('YYYY-MM-DD');
+    setPetType(pet.pet_type);
+    setBreed(pet.breed);
+    setDefaultAccess(pet.default_access);
+    setName(pet.name);
+    setLastVaccinatedOn(date);
+  },[]);
 
   const handleSubmit = (e) => {
     let errs = {};
@@ -47,10 +63,10 @@ function AddPet() {
 
   return (
     <>
-      <NavBar type="owner"/>
+      <NavBar type="owner" path="../../"/>
       <div className="ownerAddpet">
         <div className=" main_box color2">
-          <h2>Add Pet</h2>
+          <h2>Edit Pet {useParams().id}</h2>
           <div className="input_group">
             <div className="input_root">
               <div className="input">
@@ -119,7 +135,7 @@ function AddPet() {
               type="button"
               className="button button_color"
             >
-              Add Pet
+              Edit Pet
             </button>
           </div>
         </div>
@@ -128,4 +144,4 @@ function AddPet() {
   );
 }
 
-export default AddPet;
+export default EditPet;

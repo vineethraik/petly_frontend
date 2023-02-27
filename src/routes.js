@@ -6,6 +6,7 @@ import PasswordRecovery from './modules/PasswordRecovery/PasswordRecovery';
 
 import OwnerHome from './modules/OwnerHome/OwnerHome';
 import AddPet from './modules/AddPet/AddPet';
+import EditPet from './modules/EditPet/EditPet'
 
 
 let _Routes = [
@@ -25,7 +26,7 @@ let _Routes = [
 
     {path:'/owner/pet/event/:id', element:<h2>Individual Event page</h2>, role:['owner'], type: 'private'},
 
-    {path:'/owner/pet/:id', element:<h2>Edit Pet page</h2>, role:['owner'], type: 'private'},
+    {path:'/owner/pet/:id', element:<EditPet />, role:['owner'], type: 'private'},
 
     {path:'/owner/addpet' ,element:<AddPet /> ,role:['owner'] ,type: 'private'},
 
