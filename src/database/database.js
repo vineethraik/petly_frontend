@@ -20,43 +20,43 @@ export default class database {
   
   authenticate(email,password){
 
-    let type = ''
-    this.data.accounts.forEach(element => {
-      if(element.email === email){
-        type = element.type
-      }
-    });
-
-    if(type === ''){
+    let usr = this.data.accounts.find(element => element.email === email )
+    if(usr === undefined){
       return 'userNotFound'
     }else{
-      return type;
+      return usr.type;
     }
   }
 
   findAccount(email){
-    let found = false;
-    this.data.accounts.forEach(element => {
-      if(element.email === email){
-        found = true
-      }
-    });
-
-    return found
+    let usr = this.data.accounts.find(element => element.email === email )
+    if(usr === undefined){
+      return false;
+    }else{
+      return true;
+    }
   }
 
   getType(email){
-    let type = ''
-    this.data.accounts.forEach(element => {
-      if(element.email === email){
-        type = element.type
-      }
-    });
+    
+    let usr = this.data.accounts.find(element => element.email === email )
 
-    if(type === ''){
-      return 'nill'
+    if(usr === undefined){
+      return 'nill';
     }else{
-      return type;
+      return usr.type;
+    }
+  }
+
+  getOwnerData(email){
+    let usr = this.data.accounts.find(element => element.email === email )
+
+    if(usr === undefined){
+      return {};
+    }else{
+      return {
+        data: this.data.pets.filter(pet => pet.account_id === usr.id)
+      };
     }
   }
 }
