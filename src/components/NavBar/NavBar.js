@@ -37,11 +37,11 @@ function NavLinks({ type }) {
   }
 }
 
-function NavBar({ type }) {
+function NavBar({ type ,path="../"}) {
   return (
     <div className="Nav">
       <div className="Logo">
-        <img src={`../${process.env.PUBLIC_URL}logo.png`} alt="logo" />
+        <img src={`${path}${process.env.PUBLIC_URL}logo.png`} alt="logo" />
         <h2 className="logo_color">Petly</h2>
       </div>
       <NavLinks type={type} />
