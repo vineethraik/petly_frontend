@@ -51,7 +51,7 @@ function AddPet() {
       <div className="ownerAddpet">
         <div className=" main_box color2">
           <h2>Add Pet</h2>
-          <div class="input_group">
+          <div className="input_group">
             <div className="input_root">
               <div className="input">
                 <label htmlFor={typeInputId}>Pet:</label>
@@ -63,8 +63,8 @@ function AddPet() {
                   }}
                   name="Pet"
                 >
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
+                  <option value="Dog">Dog</option>
+                  <option value="Cat">Cat</option>
                 </select>
               </div>
             </div>
