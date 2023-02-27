@@ -2,7 +2,7 @@ import React, {useState, useId}from "react";
 import {useNavigate} from 'react-router-dom';
 import "./Signup.css";
 import NavBar from "./../../components/NavBar/NavBar";
-import Input from './../../components/Input/Input'
+import Input from './../../components/Input/Input';
 
 function Signup() {
   const [name,setName] = useState('');
