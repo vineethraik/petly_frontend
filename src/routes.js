@@ -1,10 +1,11 @@
 import React from "react";
 
 import Signup from "./modules/Signup/Signup";
-import Login from "./modules/Login/Login"
-import PasswordRecovery from './modules/PasswordRecovery/PasswordRecovery'
+import Login from "./modules/Login/Login";
+import PasswordRecovery from './modules/PasswordRecovery/PasswordRecovery';
 
-import OwnerHome from './modules/OwnerHome/OwnerHome'
+import OwnerHome from './modules/OwnerHome/OwnerHome';
+import AddPet from './modules/AddPet/AddPet';
 
 
 let _Routes = [
@@ -26,7 +27,7 @@ let _Routes = [
 
     {path:'/owner/pet/:id', element:<h2>Edit Pet page</h2>, role:['owner'], type: 'private'},
 
-    {path:'/owner/addpet' ,element:<h2>Add pet page</h2> ,role:['owner'] ,type: 'private'},
+    {path:'/owner/addpet' ,element:<AddPet /> ,role:['owner'] ,type: 'private'},
 
     {path:'/owner/bookappointment' ,element:<h2>Book appointment page</h2> ,role:['owner'] ,type: 'private'},
 
