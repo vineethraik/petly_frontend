@@ -21,10 +21,10 @@ function Pet({ pet }) {
         {(new Date(pet.last_vaccinated_on).toLocaleString())}
       </div>
       <div className="p_links">
-        <a href={`/owner/dashboard/${pet.id}`} className="edit button_color">
+        <a href={`/owner/pet/${pet.id}`} className="edit button_color">
           Edit
         </a>
-        <a href={`/owner/pet/${pet.id}`} className="events button_color">
+        <a href={`/owner/dashboard/${pet.id}`} className="events button_color">
           Events
         </a>
       </div>
