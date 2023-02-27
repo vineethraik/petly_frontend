@@ -1,0 +1,145 @@
+.ownerAddpet {
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+}
+
+.ownerAddpet .main_box {
+  box-shadow: 0 0 5px 2px;
+  border-radius: 2rem;
+  width: fit-content;
+  margin: auto auto;
+  margin-top: 10vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ownerAddpet .main_box h2 {
+  margin-bottom: 1rem;
+  font-weight: 1000;
+}
+
+.ownerAddpet .main_box .input_root {
+  margin-bottom: 1rem;
+}
+
+.ownerAddpet .main_box .input_group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ownerAddpet .main_box .input {
+  margin-bottom: 0rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ownerAddpet .main_box .input label {
+  margin-right: 0.5rem;
+
+  text-align: start;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.ownerAddpet .main_box .input input {
+  font-size: 1.25rem;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.ownerAddpet .main_box .input.name {
+  justify-content: flex-start;
+}
+
+.ownerAddpet .main_box .input.name input {
+  width: 50%;
+}
+
+.ownerAddpet .main_box .input.name label {
+  width: fit-content;
+}
+
+.ownerAddpet .main_box .input.date {
+  justify-content: flex-start;
+}
+.ownerAddpet .main_box .input.date label {
+  width: fit-content;
+}
+
+.ownerAddpet .main_box .input.date input {
+  width: fit-content;
+}
+
+.ownerAddpet .main_box .input.healthRecord {
+    justify-content: space-between;
+  }
+  
+  .ownerAddpet .main_box .input.healthRecord input {
+    justify-self:flex-end ;
+  }
+  
+  .ownerAddpet .main_box .input.healthRecord label {
+    width: fit-content;
+  }
+
+.ownerAddpet .main_box .input.defaultAccess {
+    justify-content: space-between;
+  }
+  
+  .ownerAddpet .main_box .input.defaultAccess input {
+    width:2rem;
+    justify-self:flex-end ;
+  }
+  
+  .ownerAddpet .main_box .input.defaultAccess label {
+    width: fit-content;
+  }
+
+.ownerAddpet .main_box .input label[for="pet_default_access"] {
+  width: fit-content;
+}
+
+.ownerAddpet .main_box .input input#pet_default_access {
+  width: 2rem;
+}
+
+.ownerAddpet .main_box .input select {
+  margin-right: 50%;
+}
+
+.ownerAddpet .main_box .input select {
+  font-size: 1.25rem;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.ownerAddpet .main_box .input .select {
+  text-align: left;
+}
+
+.ownerAddpet .main_box .input_root.button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.ownerAddpet .main_box .input_root.button .button {
+  padding: 5px;
+  font-size: 1.25rem;
+  font-weight: 1000;
+  border-style: none;
+  color: black;
+  box-shadow: 0 0 5px 2px black;
+  padding: 3px;
+  border-radius: 0.5rem;
+}
+
+.ownerAddpet .main_box .input_root .error {
+  font-size: 0.75rem;
+  color: red;
+}
