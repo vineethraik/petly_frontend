@@ -71,4 +71,42 @@ export default class database {
       return pet;
     }
   }
+
+  getClinicAbout(id){
+    let clinic =this.data.accounts.find(el=> el.id ===parseInt(id));
+    if(clinic === undefined){
+      return {}
+    }else{
+      let about = this.data.abouts.find(a => a.clinic_id === clinic.id);
+      return {
+        clinic: {
+          location: clinic.location,
+          contact: clinic.contact,
+          name: clinic.name,
+        },
+        about: about.content
+      }
+    }
+
+  }
+
+  getSearchResults(searchString , searchType="about"){
+    let res = [];
+
+    if(searchType === 'about'){
+      let clinics =this.data.accounts.filter((val)=>val.type === 'Clinic');
+      let abouts =this.data.abouts.map((val)=>{return {id: val.clinic_id,about: val.content}});
+      let filterByName = clinics.filter((val)=>val.name.toLowerCase().indexOf(searchString.toLowerCase()) !== -1).map((val)=>{return val.id});
+      let filterByLocation = clinics.filter((val)=>val.location.toLowerCase().indexOf(searchString.toLowerCase()) !== -1).map((val)=>{return val.id});
+      let filterByContact = clinics.filter((val)=>val.contact.toLowerCase().indexOf(searchString.toLowerCase()) !== -1).map((val)=>{return val.id});
+      let filterByAbout = abouts.filter((val)=>val.about.toLowerCase().indexOf(searchString.toLowerCase()) !== -1).map((val)=>{return val.id});
+
+      let all = [...filterByName,...filterByAbout,...filterByLocation,...filterByContact];
+
+      res = [...new Set(all)];
+      res = res.map((val)=>{return {id: val,name: clinics.find((c)=>c.id === val).name}})
+    }
+
+    return res;
+  }
 }
