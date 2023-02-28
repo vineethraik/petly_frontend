@@ -25,10 +25,10 @@ function EditPet() {
   const defaultAccessInputId = useId();
 
   const navigate = useNavigate();
-  const db =new database();
   const {id} = useParams();
 
   useEffect(()=>{
+    const db =new database();
     let pet = db.getPetData(id);
     let date = moment(Date.parse(pet.last_vaccinated_on)).format('YYYY-MM-DD');
     setPetType(pet.pet_type);
@@ -36,7 +36,7 @@ function EditPet() {
     setDefaultAccess(pet.default_access);
     setName(pet.name);
     setLastVaccinatedOn(date);
-  },[]);
+  },[id]);
 
   const handleSubmit = (e) => {
     let errs = {};
@@ -63,10 +63,10 @@ function EditPet() {
 
   return (
     <>
-      <NavBar type="owner" path="../../"/>
+      <NavBar type="owner" />
       <div className="ownerAddpet">
         <div className=" main_box color2">
-          <h2>Edit Pet {useParams().id}</h2>
+          <h2>Edit Pet</h2>
           <div className="input_group">
             <div className="input_root">
               <div className="input">
