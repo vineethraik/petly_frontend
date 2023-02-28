@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React, {useState, useId}from "react";
 import {useNavigate} from 'react-router-dom';
 import "./Signup.css";
