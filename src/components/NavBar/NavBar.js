@@ -1,5 +1,6 @@
 import React from "react";
 import './NavBar.css'
+import logo from './../../resource/image/logo.png'
 
 function NavLinks({ type }) {
   switch (type) {
@@ -28,7 +29,7 @@ function NavLinks({ type }) {
       return (
         <div className="Links">
         <a href="/clinic">Home</a>
-        <a href="/">Logout</a>
+        <a href="/home" onClick={()=>{window.localStorage.removeItem("email")}}>Logout</a>
         </div>
       );
 
@@ -37,11 +38,11 @@ function NavLinks({ type }) {
   }
 }
 
-function NavBar({ type ,path="../"}) {
+function NavBar({ type }) {
   return (
     <div className="Nav">
       <div className="Logo">
-        <img src={`${path}${process.env.PUBLIC_URL}logo.png`} alt="logo" />
+        <img src={logo} alt="logo" />
         <h2 className="logo_color">Petly</h2>
       </div>
       <NavLinks type={type} />
