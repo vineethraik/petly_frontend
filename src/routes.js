@@ -7,7 +7,7 @@ import PasswordRecovery from './modules/PasswordRecovery/PasswordRecovery';
 import OwnerHome from './modules/OwnerHome/OwnerHome';
 import AddPet from './modules/AddPet/AddPet';
 import EditPet from './modules/EditPet/EditPet'
-
+import AboutClinics from './modules/AboutClinics/AboutClinics'
 
 let _Routes = [
     {path: '/', element: <h2>Root</h2>, role: ['all'], type: 'public'},
@@ -36,7 +36,7 @@ let _Routes = [
 
     {path:'/owner/sharepet' ,element:<h2>Share pet page</h2> ,role:['owner'] ,type: 'private'},
 
-    {path:'/owner/clinic/about' ,element:<h2>About pages</h2> ,role:['owner'] ,type: 'private'},
+    {path:'/owner/clinic/about' ,element:<AboutClinics /> ,role:['owner'] ,type: 'private'},
 
 
     {path:'/clinic' ,element:<h2>Clinic Home Page</h2> ,role:['clinic'] ,type: 'private'},
