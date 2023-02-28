@@ -1,0 +1,78 @@
+.clinic_about {
+    padding: 5px;
+    /* min-height: 40rem; */
+    height: 100%;
+    width: 100%;
+  }
+  
+  .clinic_about .main_box {
+    box-shadow: 0 0 5px 2px;
+    border-radius: 2rem;
+    width: 80%;
+    min-height: 75%;
+    height: 75vh;
+    margin: auto auto;
+    /* margin-top: 15vh; */
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .clinic_about .main_box .container1 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .clinic_about .main_box .button {
+    font-size: 1rem;
+    margin: 1rem;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px;
+  }
+  
+  .clinic_about .main_box .container1 .button {
+    font-size: 1rem;
+    margin: 1rem;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .clinic_about .main_box .container2 {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px solid;
+    overflow: auto;
+  }
+  
+  .clinic_about .main_box .container3 {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    padding: 1rem;
+    overflow: auto;
+  }
+  
+  .clinic_about .main_box .searchContainer {
+    margin:0 auto;
+    display: flex;
+    flex-direction: column  ;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
