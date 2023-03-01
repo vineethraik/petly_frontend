@@ -109,4 +109,29 @@ export default class database {
 
     return res;
   }
+
+  getPetAppointmentHistory(pet_id){
+    let events = this.data.events.filter((val)=>val.pet_id === parseInt(pet_id));
+    let aptHistory = events.filter((val)=>val.state === 'Completed');
+    return aptHistory;
+  }
+
+  getPetOnetimeEvents(pet_id){
+    let events = this.data.events.filter((val)=>val.pet_id === parseInt(pet_id));
+    let onetimeEvents = events.filter((val)=>val.state === 'Onetime');
+    return onetimeEvents;
+  }
+
+  getPetReoccurringEvents(pet_id){
+    let events = this.data.events.filter((val)=>val.pet_id === parseInt(pet_id));
+    let reoccurringEvents = events.filter((val)=>val.state === 'Reoccurring');
+    return reoccurringEvents;
+  }
+  
+  getPetAppointments(pet_id){
+    let appointments = this.data.appointments.filter((val)=>val.pet_id === parseInt(pet_id));
+    let slots = this.data.slots;
+    appointments = appointments.map((apt)=>{return{...apt,date: slots.find((s)=>s.id === apt.slot_id).date}})
+    return appointments;
+  }
 }
