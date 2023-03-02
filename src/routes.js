@@ -6,9 +6,10 @@ import PasswordRecovery from './modules/PasswordRecovery/PasswordRecovery';
 
 import OwnerHome from './modules/OwnerHome/OwnerHome';
 import AddPet from './modules/AddPet/AddPet';
-import EditPet from './modules/EditPet/EditPet'
-import AboutClinics from './modules/AboutClinics/AboutClinics'
-import Dashboard from './modules/Dahboard/Dashboard'
+import EditPet from './modules/EditPet/EditPet';
+import AboutClinics from './modules/AboutClinics/AboutClinics';
+import Dashboard from './modules/Dahboard/Dashboard';
+import Event from './modules/Event/Event';
 
 let _Routes = [
     {path: '/', element: <h2>Root</h2>, role: ['all'], type: 'public'},
@@ -25,7 +26,7 @@ let _Routes = [
 
     {path:'/owner/dashboard/:id', element:<Dashboard />, role:['owner'], type: 'private'},
 
-    {path:'/owner/pet/event/:id', element:<h2>Individual Event page</h2>, role:['owner'], type: 'private'},
+    {path:'/owner/pet/event/:id', element:<Event />, role:['owner'], type: 'private'},
 
     {path:'/owner/pet/:id', element:<EditPet />, role:['owner'], type: 'private'},
 
