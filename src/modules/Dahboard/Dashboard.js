@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useId } from "react";
+import React, { useState, useEffect, useId,useContext } from "react";
 import { useParams,useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
-import database from "./../../database/database";
+import {dbContext} from "./../../database/databaseContext";
 import {eventConstants} from './../../constants/constants'
 
 import NavBar from "./../../components/NavBar/NavBar";
@@ -14,6 +14,7 @@ import Appointment from "./components/Appointment/Appointment";
 function Dashboard() {
   const { id } = useParams();
   const navigate =useNavigate();
+  const db = useContext(dbContext);
 
   const nameInputId = useId();
   const typeInputId = useId();
@@ -34,22 +35,18 @@ function Dashboard() {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    const db = new database();
     setAptHistory(db.getPetAppointmentHistory(id));
   }, [id]);
 
   useEffect(() => {
-    const db = new database();
     setReminders(db.getPetOnetimeEvents(id));
   }, [id]);
 
   useEffect(() => {
-    const db = new database();
     setReoccurringReminders(db.getPetReoccurringEvents(id));
   }, [id]);
 
   useEffect(() => {
-    const db = new database();
     setAppointments(db.getPetAppointments(id));
   }, [id]);
 

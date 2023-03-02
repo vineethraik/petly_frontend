@@ -1,11 +1,12 @@
 // import {useNavigate} from 'react-router-dom';
-import database from './../../database/database'
+import React, {useContext} from 'react';
+import {dbContext} from './../../database/databaseContext';
 import NavBar from "./../../components/NavBar/NavBar";
 import Pet from './components/Pet/Pet'
 import "./OwnerHome.css";
 
 function OwnerHome() {
-    let db = new database()
+  const db = useContext(dbContext);
   return (
     <>
       <div className="owner_home">

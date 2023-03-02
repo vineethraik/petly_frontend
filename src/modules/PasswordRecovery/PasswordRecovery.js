@@ -1,8 +1,8 @@
-import React, { useState, useId } from "react";
+import React, { useState,useContext, useId } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./../../components/NavBar/NavBar";
 import Input from "./../../components/Input/Input";
-import database from "./../../database/database"
+import {dbContext} from "./../../database/databaseContext"
 
 function PasswordRecovery() {
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ function PasswordRecovery() {
   const confirmPasswordInputId = useId();
 
   const navigate = useNavigate();
-  const db = new database()
+  const db = useContext(dbContext);
 
   const handleSubmit = (e) => {
     let errs = {};

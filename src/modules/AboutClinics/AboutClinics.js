@@ -1,13 +1,13 @@
-import React, { useState} from "react";
+import React, { useState,useContext} from "react";
 import "./AboutClinics.css";
 
 import NavBar from "./../../components/NavBar/NavBar";
 import Search from './../../components/Search/Search'
 import AboutContent from './components/AboutContent/AboutContent';
-import database from './../../database/database'
+import {dbContext} from './../../database/databaseContext'
 
 function AboutClinics() {
-    const db =new database();
+    const db = useContext(dbContext);
   const [about, setAbout] = useState({  });
 
   const updateAbout = (id) => {
