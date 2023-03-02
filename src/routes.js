@@ -8,6 +8,7 @@ import OwnerHome from './modules/OwnerHome/OwnerHome';
 import AddPet from './modules/AddPet/AddPet';
 import EditPet from './modules/EditPet/EditPet'
 import AboutClinics from './modules/AboutClinics/AboutClinics'
+import Dashboard from './modules/Dahboard/Dashboard'
 
 let _Routes = [
     {path: '/', element: <h2>Root</h2>, role: ['all'], type: 'public'},
@@ -22,7 +23,7 @@ let _Routes = [
 
     {path:'/owner', element:<OwnerHome />, role:['owner'], type: 'private'},
 
-    {path:'/owner/dashboard/:id', element:<h2>Dashboard page</h2>, role:['owner'], type: 'private'},
+    {path:'/owner/dashboard/:id', element:<Dashboard />, role:['owner'], type: 'private'},
 
     {path:'/owner/pet/event/:id', element:<h2>Individual Event page</h2>, role:['owner'], type: 'private'},
 
