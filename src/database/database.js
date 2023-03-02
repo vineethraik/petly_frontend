@@ -1,4 +1,6 @@
 /* eslint-disable no-useless-escape */
+import {eventConstants} from './../constants/constants'
+
 export default class database {
   data = JSON.parse("{}");
   constructor() {
@@ -112,19 +114,19 @@ export default class database {
 
   getPetAppointmentHistory(pet_id){
     let events = this.data.events.filter((val)=>val.pet_id === parseInt(pet_id));
-    let aptHistory = events.filter((val)=>val.state === 'Completed');
+    let aptHistory = events.filter((val)=>val.state === eventConstants.state.COMPLETED);
     return aptHistory;
   }
 
   getPetOnetimeEvents(pet_id){
     let events = this.data.events.filter((val)=>val.pet_id === parseInt(pet_id));
-    let onetimeEvents = events.filter((val)=>val.state === 'Onetime');
+    let onetimeEvents = events.filter((val)=>val.state === eventConstants.state.ONETIME);
     return onetimeEvents;
   }
 
   getPetReoccurringEvents(pet_id){
     let events = this.data.events.filter((val)=>val.pet_id === parseInt(pet_id));
-    let reoccurringEvents = events.filter((val)=>val.state === 'Reoccurring');
+    let reoccurringEvents = events.filter((val)=>val.state === eventConstants.state.REOCCURRING);
     return reoccurringEvents;
   }
   

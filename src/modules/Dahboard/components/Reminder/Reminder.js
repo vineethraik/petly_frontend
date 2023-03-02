@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+import {eventConstants} from './../../../../constants/constants';
+
 function Reminder({ data }) {
   const navigate = useNavigate();
 

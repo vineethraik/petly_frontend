@@ -3,6 +3,7 @@ import { useParams,useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
 import database from "./../../database/database";
+import {eventConstants} from './../../constants/constants'
 
 import NavBar from "./../../components/NavBar/NavBar";
 import Input from "./../../components/Input/Input";
@@ -62,7 +63,7 @@ function Dashboard() {
       errs.date = "date cant be empty";
     }
 
-    if(((30*month + day) < 7)&&(type === 'reoccurring')){
+    if(((30*month + day) < 7)&&(type === eventConstants.state.REOCCURRING)){
       errs.month = "Repat time cant be less then 7";
     }
 
@@ -133,21 +134,21 @@ function Dashboard() {
                       name="SelectedType"
                     >
                       <option value="">Select type</option>
-                      <option value="onetime">One time</option>
-                      <option value="reoccurring">Reoccurring</option>
+                      <option value={eventConstants.state.ONETIME}>One time</option>
+                      <option value={eventConstants.state.REOCCURRING}>Reoccurring</option>
                     </select>
                   </div>
                 </div>
                 {((type !== '') && <>
                 <Input
                   id={date}
-                  label={(type === 'onetime')? 'Date:':'Start Date:' }
+                  label={(type === eventConstants.state.ONETIME)? 'Date:':'Start Date:' }
                   value={date}
                   setOnChange={setDate}
                   error={errors.date}
                   type="date"
                 />
-                {((type === 'reoccurring')&&<>
+                {((type === eventConstants.state.REOCCURRING)&&<>
                 <span>Repeats After:</span>
                 <Input
                   id={month}
