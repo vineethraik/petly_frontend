@@ -125,4 +125,12 @@ export default class database {
     appointments = appointments.map((apt)=>{return{...apt,date: slots.find((s)=>s.id === apt.slot_id).date}})
     return appointments;
   }
+
+  getEvent(event_id){
+    let event = this.data.events.find((val)=>val.id === parseInt(event_id));
+    console.log(event);
+    const data = JSON.parse(event.data);
+    event.edata =data;
+    return event;
+  }
 }
