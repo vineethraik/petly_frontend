@@ -29,6 +29,12 @@ export default class database {
     }
   }
 
+  getAccountId(email){
+    let user =this.data.accounts.find(ac => ac.email === email);
+     
+    return (user !== undefined) ? user.id : null;
+  }
+
   getType(email){
     
     let usr = this.data.accounts.find(element => element.email === email )
@@ -132,5 +138,12 @@ export default class database {
     const data = JSON.parse(event.data);
     event.edata =data;
     return event;
+  }
+
+  getSharePetData(user_id){
+    let transfers = this.data.transfers.filter((val)=>val.account_id === parseInt(user_id));
+    let pets = this.data.pets.filter((val)=>val.account_id === parseInt(user_id)).map(pet=>{return {id:pet.id , name:pet.name}});
+    return {transfers: transfers,
+    pets: pets};
   }
 }
