@@ -10,6 +10,7 @@ import EditPet from './modules/EditPet/EditPet';
 import AboutClinics from './modules/AboutClinics/AboutClinics';
 import Dashboard from './modules/Dahboard/Dashboard';
 import Event from './modules/Event/Event';
+import SharePet from './modules/SharePet/SharePet'
 
 let _Routes = [
     {path: '/', element: <h2>Root</h2>, role: ['all'], type: 'public'},
@@ -36,7 +37,7 @@ let _Routes = [
 
     {path:'/owner/editappointment/:id' ,element:<h2>Edit appointment Page</h2> ,role:['owner'] ,type: 'private'},
 
-    {path:'/owner/sharepet' ,element:<h2>Share pet page</h2> ,role:['owner'] ,type: 'private'},
+    {path:'/owner/sharepet' ,element:<SharePet /> ,role:['owner'] ,type: 'private'},
 
     {path:'/owner/clinic/about' ,element:<AboutClinics /> ,role:['owner'] ,type: 'private'},
 
