@@ -1,6 +1,5 @@
 .owner_dashboard{
     padding: 5px;
-    height: 100%;
     width: 100%;
   }
 
@@ -13,7 +12,7 @@
       border-radius: 2rem;
       width: 90%;
       min-height: 80%;
-      height: 80vh;
+      height: 77vh;
       margin: auto auto;
       padding: 0.5rem;
       display: flex;
@@ -32,7 +31,7 @@
   
   .owner_dashboard .container2{
       width: 25%;
-      height: 95%;
+      height: 90%;
       box-shadow: 0 0 5px ;
       border-radius: 2rem;
       padding: 1rem;
